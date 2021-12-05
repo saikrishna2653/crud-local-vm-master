@@ -9,7 +9,7 @@ pipeline {
     stage('Source') { // Get code
       steps {
         // get code from our Git repository
-        git 'https://github.com/saikrishna2653/crud_examples.git'
+        git 'https://github.com/saikrishna2653/crud-local-vm-master.git'
       }
     }
   /*  stage('Compile') { // Compile and do unit testing
@@ -47,7 +47,7 @@ pipeline {
 	  echo ${HOST_NAME}
 	  echo ${USER_ID}
 	      
-          su dockeradmin -c './k8s-deploy.sh "${HOST_NAME}" "${USER_ID}"'
+          ./k8s-deploy.sh "${HOST_NAME}" "${USER_ID}"
         '''		
       }
     }
