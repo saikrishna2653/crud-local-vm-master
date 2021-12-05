@@ -5,7 +5,7 @@ pipeline {
      DOCKER_HOST="192.168.150.128"
      USER_ID="dockeradmin"
    }
-  stages {
+/*  stages {
     stage('Source') { // Get code
       steps {
         // get code from our Git repository
@@ -33,7 +33,7 @@ pipeline {
          '''
          }	  
      }
-   } 	  
+   } 	*/  
     stage('Copy manifest files to server') { 
 	 steps {   
       dir('kubernetes-my-appln') {
