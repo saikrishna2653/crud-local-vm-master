@@ -12,7 +12,7 @@ pipeline {
         git 'https://github.com/saikrishna2653/crud-local-vm-master.git'
       }
     }
-  /*  stage('Compile') { // Compile and do unit testing
+    stage('Compile') { // Compile and do unit testing
       tools {
         maven 'maven3'
       }
@@ -25,7 +25,7 @@ pipeline {
 	steps {  
       sshagent(['deploy_user']) {
          sh '''		 
-	 scp /var/jenkins_home/workspace/curd-appln-k8s-deploy/target/crud-0.0.1-SNAPSHOT.war Dockerfile $USER_ID@$DOCKER_HOST:/opt/docker;
+	 scp /var/jenkins_home/workspace/curd-k8s-deploy/target/crud-0.0.1-SNAPSHOT.war Dockerfile $USER_ID@$DOCKER_HOST:/opt/docker;
 	 ssh $USER_ID@$DOCKER_HOST docker image rm -f department_employee || true;
 	 ssh $USER_ID@$DOCKER_HOST "cd /opt/docker && pwd && ls -lrt && docker build -t department_employee . ";  
          ssh $USER_ID@$DOCKER_HOST docker tag department_employee saikrishna2653/department_employee;  
@@ -33,7 +33,7 @@ pipeline {
          '''
          }	  
      }
-   } 	*/  
+   } 	  
     stage('Copy manifest files to server') { 
 	 steps {   
       dir('kubernetes-my-appln') {
