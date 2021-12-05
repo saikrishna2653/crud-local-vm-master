@@ -5,14 +5,14 @@ pipeline {
      DOCKER_HOST="192.168.150.128"
      USER_ID="dockeradmin"
    }
-/*  stages {
+ stages {
     stage('Source') { // Get code
       steps {
         // get code from our Git repository
         git 'https://github.com/saikrishna2653/crud-local-vm-master.git'
       }
     }
-    stage('Compile') { // Compile and do unit testing
+   /*  stage('Compile') { // Compile and do unit testing
       tools {
         maven 'maven3'
       }
