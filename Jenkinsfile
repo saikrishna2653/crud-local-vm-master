@@ -12,7 +12,7 @@ pipeline {
         git 'https://github.com/saikrishna2653/crud-local-vm-master.git'
       }
     }
-  /*  stage('Compile') { // Compile and do unit testing
+  stage('Compile') { // Compile and do unit testing
       tools {
         maven 'maven3'
       }
@@ -38,7 +38,7 @@ pipeline {
          }
 	}
      }
-   } 	*/ 
+   } 	
     stage('Copy manifest files to server') { 
 	 steps {   
       dir('kubernetes-my-appln') {
