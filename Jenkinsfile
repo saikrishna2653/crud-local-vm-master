@@ -32,8 +32,8 @@ pipeline {
 	 ssh $USER_ID@$DOCKER_HOST docker image rm -f department_employee || true;
 	 ssh $USER_ID@$DOCKER_HOST "cd /opt/docker && pwd && ls -lrt && docker build -t department_employee . ";  
          ssh $USER_ID@$DOCKER_HOST docker tag department_employee saikrishna2653/department_employee;
-	#  ssh $USER_ID@$DOCKER_HOST docker login -u="${DOCKER_USERNAME}" -p="${DOCKER_PASSWORD}"
-         #ssh $USER_ID@$DOCKER_HOST docker push saikrishna2653/department_employee; 	
+	 ssh $USER_ID@$DOCKER_HOST docker login -u="${DOCKER_USERNAME}" -p="${DOCKER_PASSWORD}"
+         ssh $USER_ID@$DOCKER_HOST docker push saikrishna2653/department_employee; 	
          '''
          }
 	}
