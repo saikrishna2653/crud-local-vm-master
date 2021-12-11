@@ -65,8 +65,11 @@ pipeline {
           #
           # copy files to server
           #
-	 su dockeradmin -c 'ssh $USER_ID@$HOST_NAME "kubectl delete -f /opt/kubernetes_Deloy/crud-app-service.yml; kubectl delete -f /opt/kubernetes_Deloy/crud-app-deploy.yml;"' 
-         su dockeradmin -c 'ssh $USER_ID@$HOST_NAME "kubectl apply -f /opt/kubernetes_Deloy/crud-app-deploy.yml; kubectl apply -f /opt/kubernetes_Deloy/crud-app-service.yml"'
+	# su dockeradmin -c 'ssh $USER_ID@$HOST_NAME "kubectl delete -f /opt/kubernetes_Deloy/crud-app-service.yml; kubectl delete -f /opt/kubernetes_Deloy/crud-app-deploy.yml;"' 
+       #  su dockeradmin -c 'ssh $USER_ID@$HOST_NAME "kubectl apply -f /opt/kubernetes_Deloy/crud-app-deploy.yml; kubectl apply -f /opt/kubernetes_Deloy/crud-app-service.yml"'
+       
+       ssh $USER_ID@$HOST_NAME "kubectl delete -f /opt/kubernetes_Deloy/crud-app-service.yml; kubectl delete -f /opt/kubernetes_Deloy/crud-app-deploy.yml"
+       ssh $USER_ID@$HOST_NAME "kubectl apply -f /opt/kubernetes_Deloy/crud-app-deploy.yml; kubectl apply -f /opt/kubernetes_Deloy/crud-app-service.yml"
         '''		
       }
     }
